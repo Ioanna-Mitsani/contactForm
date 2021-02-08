@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="contactform.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form || Ioanna Mitsani</title>
+</head>
+<body>
+    <main>
+        <div id="form-container">
+        <h1>Contact Form</h1>
+        <form id="form" action="/success.html" method="GET" autocomplete="off">
+        <p id="e71" class="warning">Please fill the fields below</p>
+        <p id="e72" class="error">Please complete the form with valid information</p>
+    
+        <label for="fullname">Full Name:</label>
+        <input type="text" name="fullname" id="fullname" placeholder="Full Name" class="field"/><i id="v1" class="far fa-check-circle"></i><i id="f1" class="far fa-times-circle"></i>
+        <p id="e1" class="error">Please enter your full name</p>
+
+        <label for="email">E-mail address:</label>
+        <input type="email" name="email" id="email" placeholder="E-mail address" class="field"/><i id="v2" class="far fa-check-circle"></i><i id="f2" class="far fa-times-circle"></i>
+        <p id="e2" class="error">Please enter a valid e-mail address</p>
+
+        <label for="emailvalid">Confirm e-mail address:</label>
+        <input type="email" name="emailconf" id="emailvalid" placeholder="Confirm your e-mail address"class="field"/><i id="v3" class="far fa-check-circle"></i><i id="f3" class="far fa-times-circle"></i>
+        <p id="e31" class="error">The email you typed does not match with the above</p>
+        <p id="e32" class="error">Please enter a valid e-mail address</p>
+
+        <label for="phone">Telephone:</label>
+        <input type="tel" name="phone" id="phone" placeholder="Phone number"class="field"/><i id="v4" class="far fa-check-circle"></i><i id="f4" class="far fa-times-circle"></i>
+        <p id="e4" class="error">Please enter a valid phone number <i>e.g. +30 210 1234567</i></p>
+
+       <label for="address">Address</label>
+        <input type="text" name="address" id="address" placeholder="Street address" class="field"/><i id="v5" class="far fa-check-circle"></i><i id="f5" class="far fa-times-circle"></i>
+        <p id="e5" class="error">Please enter a valid street address <i>e.g. Eleftheriou Venizelou 10, Kallithea, 12345, Athens</i></p>
+
+        <label for="message">Your message:</label>
+        <textarea id="message" placeholder="Type here your message..."></textarea>
+        <p id="e6" class="warning">Maximum 150 characters</p>
+        <button class="btn" type="submit" value="submit">Send</button>
+    </form>
+</div>
+</main>   
+</body>
+    <script src="contactForm.js"></script>
+</html>
