@@ -41,6 +41,9 @@ const messageError = document.getElementById('e6');
 const formError1 = document.getElementById('e71');
 const formError2 = document.getElementById('e72');
 
+/* Κάνει έλεγχο onblur αν το input value του fullname ταιριάζει με το regex και εμφανίζει τις αντίστοιχες ενδείξεις
+    Αν το πεδίο είναι κενό εξαφανίζει τα error messages & τις ενδείξεις
+*/
 fullname.onblur = () => {
     if (!nameRegex.test(fullname.value.trim())){
        nameError.style.display = "block"; 
@@ -60,12 +63,18 @@ fullname.onblur = () => {
 
 }
 
+// Εξαφανίζει onfocus τις ενδείξεις/error messages του πεδίου fullname
 fullname.onfocus = () => {
     nameError.style.display = "none"; 
     notValidName.style.display = "none"; 
     validName.style.display = 'none';
 }
 
+/* Κάνει έλεγχο onblur αν το input value του email ταιριάζει με το regex και εμφανίζει τις αντίστοιχες ενδείξεις
+    Ελέγχει αν η τιμή του πεδίου είναι ίδια με του email confirmation (μόνο αν τα δύο πεδία έχουν συμπληρωθεί)
+    Αν το πεδίο είναι κενό εξαφανίζει τις ενδείξεις/error messages
+    Αν τα πεδία email, email confirmation είναι ίδια αλλά δεν ταιριάζουν με το regex ζητάει valid email
+*/
 email.onblur = () => {
     if (!emailRegex.test(email.value.trim())){
        emailError.style.display = "block"; 
@@ -120,12 +129,17 @@ email.onblur = () => {
 
 }
 
+// Εξαφανίζει onfocus τις ενδείξεις/error messages του πεδίου e-mail
 email.onfocus = () => {
     emailError.style.display = "none"; 
     notValidEmail.style.display = "none"; 
     validEmail.style.display = 'none';
 }
 
+/* Κάνει έλεγχο onblur αν το input value του email validation ταιριάζει με το regex και εμφανίζει τις αντίστοιχες ενδείξεις
+    Ελέγχει αν η τιμή του πεδίου είναι ίδια με του email και τα values ταιριάζουν με το regex
+    Αν το πεδίο είναι κενό εξαφανίζει τις ενδείξεις/error messages
+*/
 emailValid.onblur = () => {
     if(!emailRegex.test(emailValid.value.trim())){
         confirmError2.style.display = "block";
@@ -155,6 +169,7 @@ emailValid.onblur = () => {
     }
 }
 
+// Εξαφανίζει onfocus τις ενδείξεις/error messages του πεδίου email validation (emailValid)
 emailValid.onfocus = () => {
     confirmError1.style.display = "none"; 
     confirmError2.style.display = "none"; 
@@ -162,6 +177,9 @@ emailValid.onfocus = () => {
     validEmailConf.style.display = "none";
 }
 
+/* Ελέγχει onblur αν το τηλέφωνο ταιριάζει με το regex
+    Αν το πεδίο είναι κενό εξαφανίζει τις ενδείξεις & τα error messages
+*/
 phone.onblur = () => {
     if (!phoneRegex.test(phone.value.trim())){
         phoneError.style.display = "block"; 
@@ -180,6 +198,7 @@ phone.onblur = () => {
     }
 }
 
+// Εξαφανίζει τις ενδείξεις onfocus στο πεδίο του τηλεφώνου και αν το value = "" προσυμπληρώνει το country code της Ελλάδας
 phone.onfocus = () => {
    if (phone.value == ""){
         phone.value = "+30"
@@ -190,6 +209,7 @@ phone.onfocus = () => {
     validPhone.style.display = "none";
 }
 
+//  Ελέγχει onblur αν η διεύθυνση ταιριάζει με το regex της και αν είναι κενή εξαφανίζει τις ενδείξεις/error messages
 address.onblur = () => {
     if(!addressRegex.test(address.value.trim())){
         addressError.style.display = "block";
@@ -208,12 +228,14 @@ address.onblur = () => {
     }
 }
 
+// Εξαφανίζει onfocus τις ενδείξεις στο πεδίο της διεύθυνσης
 address.onfocus = () => {
         addressError.style.display = "none";
         validAddress.style.display = "none";
         notValidAddress.style.display = "none";
 }
 
+// Ελέγχει κατά την πληκτρολόγηση αν το μήνυμα είναι 150 χαρακτήρες και αν είναι λιγότερο από αυτό προειδοποιεί αλλιώς το εμφανίζει ως error
 message.oninput = () => {
     if (message.value.length <= 150){
         messageError.style.display = "block";
@@ -222,6 +244,7 @@ message.oninput = () => {
     }
 }
 
+// Εάν το μήνυμα είναι ίσο ή λιγότερο από 150 χαρακτήρες εξαφανίζει την προϊδοποίηση, αλλιώς αν τους υπερβαίνει το εμφανίζει ως error
 message.onblur = () => {
     if (message.value.length <= 150){
         messageError.style.display = "none";
@@ -231,6 +254,7 @@ message.onblur = () => {
     }
 }
 
+// Ελέγχει κατά το submit εάν τα πεδία είναι κενά. Εάν είναι κενά δεν προχωράει στο submit και εμφανίζει error message
 form.onsubmit = (event) => {
     if (
         fullname.value.trim() == "" ||
@@ -245,6 +269,7 @@ form.onsubmit = (event) => {
     }
 }
 
+// Ελέγχει κατά το submit εάν τα πεδία είναι valid σύμφωνα με τα regex. Εάν δεν είναι valid δεν προχωράει στο submit και εμφανίζει error message
 form.onsubmit = (ev) => {   if(
         nameRegex.test(fullname.value.trim()) == false ||
         emailRegex.test(email.value.trim()) == false ||
